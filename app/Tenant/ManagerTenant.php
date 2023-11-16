@@ -25,4 +25,9 @@ class ManagerTenant
 
         Log::info('connection changed to:' . json_encode(config('database.connections.tenant')));
     }
+
+    public function checksIfItIsTheMainDomain(): bool
+    {
+        return request()->getHost() === config('master-domain.master_domain');
+    }
 }
