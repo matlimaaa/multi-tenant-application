@@ -19,6 +19,10 @@ class TenantMiddleware
     {
         $managerTenant = app(ManagerTenant::class);
 
+        if ($managerTenant->checksIfItIsTheMainDomain()) {
+            return $next($request);
+        }
+
         $company = $this->getCompanyByDomain($request->getHost());
 
         if (! $company && $request->url() != route('404.tenant')) {
