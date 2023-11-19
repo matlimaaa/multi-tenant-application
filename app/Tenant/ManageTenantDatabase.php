@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class ManageTenantDatabase
 {
-    public function createDatabase(Company $company)
+    public function createDatabase(Company $company): void
     {
         DB::statement(
             "CREATE DATABASE {$company->bd_database} CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci"
