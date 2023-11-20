@@ -37,7 +37,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
 
             Route::prefix('tenants')
-                ->middleware('web', 'check.master.domain')
+                ->middleware('api', 'check.master.domain')
                 ->group(base_path('routes/tenant.php'));
         });
     }
